@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -74,7 +71,7 @@ public class ProductController {
         logger.info("Received request to create new product: {}", request);
         Product newProduct = productService.addProduct(request);
         logger.info("Successfully created product: {}", newProduct);
-        return ResponseEntity.ok(newProduct);
+        return new ResponseEntity<>(newProduct, HttpStatus.CREATED);
     }
 
     @DeleteMapping("/{id}")
