@@ -23,7 +23,7 @@ jobs:
           docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
       - name: Docker Build
         run: |
-          docker build -t zachholt/inventory-management
+          docker build -t zachholt/inventory-management .
 
       - name: Push Image
         run: docker push zachholt/inventory-management:latest
