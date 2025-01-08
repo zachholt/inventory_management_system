@@ -17,7 +17,7 @@ jobs:
           distribution: "temurin"
           java-version: "17"
       - name: Build
-        run:
+        run: mvn clean install
       - name: Docker Login
         run: |
           docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
